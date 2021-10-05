@@ -14,7 +14,7 @@ def Eratostene(n):
         return primes
 def odd_primes(N):
     '''
-
+    dsadsadsa
     :param N:
     :return:
     '''
