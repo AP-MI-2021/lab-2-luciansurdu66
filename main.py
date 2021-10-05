@@ -13,11 +13,6 @@ def Eratostene(n):
             j=j+1
         return primes
 def odd_primes(N):
-    '''
-    dsadsadsa
-    :param N:
-    :return:
-    '''
     oddprimes = Eratostene(N)
     oddprimes.remove(2)
     return(oddprimes)
