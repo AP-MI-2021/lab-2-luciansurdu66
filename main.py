@@ -1,34 +1,34 @@
 def eratostene(n, isPrime):
-    '''
+    """
     determină Ciurul lui Eratostene
     :param n: nr. întreg
     :return: numerele prime cu ajutorul Ciurului lui Eratostene
-    '''
+    """
     isPrime[0] = isPrime[1] = False
     for i in range(2, n + 1):
         isPrime[i] = True
     p = 2
-    while (p * p <= n):
+    while p * p <= n:
         if isPrime[p]:
             i = p * p
-            while (i <= n):
+            while i <= n:
                 isPrime[i] = False
                 i += p
         p += 1
 
 
 def get_goldbach(n):
-    '''
+    """
     verifica conjectura lui Goldbach
     :param n: nr. intreg
     :return:cel mai mic si cel mai mare numar prim a caror suma este egala cu n
-    '''
+    """
     x, y = 0, 0
     i = 0
     isPrime = [0] * (n + 1)
     eratostene(n, isPrime)
     for i in range(0, n):
-        if (isPrime[i] and isPrime[n - i]):
+        if isPrime[i] and isPrime[n - i]:
             break
     x = i
     y = n-i
@@ -59,11 +59,11 @@ def test_get_newton_sqrt():
 
 
 def is_superprime(n):
-    '''
+    """
     Verifica daca un numar este superprim
     :param n: numar intreg
     :return: valoare de adevar in functie de caz
-    '''
+    """
     copie = n
     if n < 2:
         return False
@@ -82,6 +82,9 @@ def test_is_superprime():
     assert is_superprime(233) is True
     assert is_superprime(21) is False
     assert is_superprime(37) is True
+
+
+for i in range(n-1,2,-1)
 
 
 shouldRun = True
