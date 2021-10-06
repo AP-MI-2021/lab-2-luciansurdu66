@@ -44,6 +44,10 @@ def get_goldbach(n):
     return x, y
 
 
+def test_get_goldbach():
+    assert get_goldbach(100) == (3, 97)
+    assert get_goldbach(32) == (3, 29)
+
 def get_newton_sqrt(n, steps):
     """
     Calculeaza rădăcina pătrată
@@ -69,6 +73,7 @@ while shouldRun:
     print("x. Iesire")
     optiune = input("Dati opțiunea: ")
     if optiune == "1":
+        test_get_goldbach()
         n = int(input('Dați un număr par >2 : '))
         p1, p2 = get_goldbach(n)
         print(p1, p2)
