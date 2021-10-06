@@ -84,31 +84,35 @@ def test_is_superprime():
     assert is_superprime(37) is True
 
 
-shouldRun = True
-while shouldRun:
-    print("1. Determină numerele prime p1 și p2 astfel astfel încât n=p1+p2, p1 minim și p2 maxim")
-    print("2. Determinati rădăcina pătrată a unui număr")
-    print("3. Determină dacă un nr. este superprim")
-    print("x. Iesire")
-    optiune = input("Dati opțiunea: ")
-    if optiune == "1":
-        test_get_goldbach()
-        n = int(input('Dați un număr par >2 : '))
-        p1, p2 = get_goldbach(n)
-        print(p1, p2)
-    elif optiune == "2":
-        test_get_newton_sqrt()
-        x = int(input("Dați un nr."))
-        steps = int(input("Dați un număr de pași: "))
-        print("Rădăcina numărului este: ", get_newton_sqrt(x, steps))
-    elif optiune == "3":
-        n = int(input("Dați un nr."))
-        if is_superprime(n):
-            print(f"Numărul este superprim")
+def main():
+    shouldRun = True
+    while shouldRun:
+        print("1. Determină numerele prime p1 și p2 astfel astfel încât n=p1+p2, p1 minim și p2 maxim")
+        print("2. Determinati rădăcina pătrată a unui număr")
+        print("3. Determină dacă un nr. este superprim")
+        print("x. Iesire")
+        optiune = input("Dati opțiunea: ")
+        if optiune == "1":
+            test_get_goldbach()
+            n = int(input('Dați un număr par >2 : '))
+            p1, p2 = get_goldbach(n)
+            print(p1, p2)
+        elif optiune == "2":
+            test_get_newton_sqrt()
+            x = int(input("Dați un nr."))
+            steps = int(input("Dați un număr de pași: "))
+            print("Rădăcina numărului este: ", get_newton_sqrt(x, steps))
+        elif optiune == "3":
+            n = int(input("Dați un nr."))
+            if is_superprime(n):
+                print(f"Numărul este superprim")
+            else:
+                print(f"Numărul nu este superprim")
+            test_is_superprime()
+        elif optiune == "x":
+            shouldRun = False
         else:
-            print(f"Numărul nu este superprim")
-        test_is_superprime()
-    elif optiune == "x":
-        shouldRun = False
-    else:
-        print("Opțiune greșită! Reincercați!")
+            print("Opțiune greșită! Reincercați!")
+
+if __name__ == '__main__':
+    main()
