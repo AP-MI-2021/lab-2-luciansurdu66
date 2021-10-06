@@ -84,9 +84,6 @@ def test_is_superprime():
     assert is_superprime(37) is True
 
 
-for i in range(n-1,2,-1)
-
-
 shouldRun = True
 while shouldRun:
     print("1. Determină numerele prime p1 și p2 astfel astfel încât n=p1+p2, p1 minim și p2 maxim")
