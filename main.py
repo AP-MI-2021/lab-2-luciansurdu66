@@ -1,24 +1,20 @@
-def eratostene(n):
+def eratostene(n, isPrime):
     '''
     determină Ciurul lui Eratostene
     :param n: nr. întreg
     :return: numerele prime cu ajutorul Ciurului lui Eratostene
     '''
-    primes = list(range(2, n + 1))
-    for i in primes:
-        j = 2
-        while i * j <= primes[-1]:
-            if i * j in primes:
-                primes.remove(i * j)
-            j = j + 1
-        return primes
-
-
-def odd_primes(n):
-    oddprimes = eratostene(n)
-    oddprimes.remove(2)
-    return oddprimes
-
+    isPrime[0] = isPrime[1] = False
+    for i in range(2, n + 1):
+        isPrime[i] = True
+    p = 2
+    while (p * p <= n):
+        if (isPrime[p] == True):
+            i = p * p
+            while (i <= n):
+                isPrime[i] = False
+                i += p
+        p += 1
 
 def get_goldbach(n):
     '''
@@ -26,21 +22,14 @@ def get_goldbach(n):
     :param n: nr. intreg
     :return:cel mai mic si cel mai mare numar prim a caror suma este egala cu n
     '''
-
     x, y = 0, 0
-    rezultat = 0
-    if n % 2 == 0:
-        prime = odd_primes(n)
-        while rezultat != n:
-            for i in range(len(prime)):
-                if rezultat == n:
-                    break
-                x = prime[i]
-                for j in range(len(prime)):
-                    y = prime[j]
-                    rezultat = x + y
-                    if rezultat == n:
-                        break
+    isPrime = [0] * (n + 1)
+    eratostene(n,isPrime)
+    for i in range(0, n):
+        if (isPrime[i] and isPrime[n - i]):
+            break
+    x = i
+    y = n-i
     return x, y
 
 
